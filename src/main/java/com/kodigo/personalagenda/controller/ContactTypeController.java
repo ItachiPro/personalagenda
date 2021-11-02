@@ -25,8 +25,8 @@ public class ContactTypeController {
     @RequestMapping(value = "/contactType/{id}", method = RequestMethod.GET)
     public ResponseEntity<ContactType> getContactTypeById(@PathVariable long id){
         try{
-            Optional<ContactType> contact = contactTypeRepository.findById(id);
-            return ResponseEntity.of(contact);
+            Optional<ContactType> contactType = contactTypeRepository.findById(id);
+            return ResponseEntity.of(contactType);
         }catch(Exception e){
             return  new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

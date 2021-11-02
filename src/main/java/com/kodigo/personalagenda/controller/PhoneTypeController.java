@@ -25,8 +25,8 @@ public class PhoneTypeController {
     @RequestMapping(value = "/phoneType/{id}", method = RequestMethod.GET)
     public ResponseEntity<PhoneType> getPhoneTypeById(@PathVariable long id){
         try{
-            Optional<PhoneType> contact = phoneTypeRepository.findById(id);
-            return ResponseEntity.of(contact);
+            Optional<PhoneType> phoneType = phoneTypeRepository.findById(id);
+            return ResponseEntity.of(phoneType);
         }catch(Exception e){
             return  new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
