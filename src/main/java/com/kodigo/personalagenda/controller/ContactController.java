@@ -17,7 +17,7 @@ public class ContactController {
     @Autowired
     ContactRepository contactRepository;
 
-    @RequestMapping(value = "/contact")
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public List<Contact> getContacts(){
         return contactRepository.findAll();
     }

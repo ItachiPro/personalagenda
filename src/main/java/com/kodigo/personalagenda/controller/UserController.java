@@ -5,6 +5,7 @@ import com.kodigo.personalagenda.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,9 @@ public class UserController {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public List<Users> getUsers(){
@@ -35,6 +39,8 @@ public class UserController {
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public ResponseEntity<Users> saveUser(@RequestBody Users user){
         try{
+            String encondedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+            user.setPassword(encondedPassword);
             Users response = userRepository.save(user);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }catch(Exception e){
