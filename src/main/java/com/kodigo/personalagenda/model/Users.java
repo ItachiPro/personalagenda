@@ -8,11 +8,11 @@ import javax.persistence.*;
 @Table(name = "user")
 @ToString
 @AllArgsConstructor @NoArgsConstructor
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter @Setter @Column(name = "id_user", updatable = false, nullable = false)
-    private Long idUSer;
+    private Long idUser;
 
     @Getter @Setter @Column(name = "username")
     private String username;
