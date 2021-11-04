@@ -21,6 +21,8 @@ Esta es una API desarrollada en Java utilizando los frameworks Spring boot e Hib
 
 # Uso
 
+Las pruebas de los endpoints se realizan el Postman.
+
 - Crear un usuario con el siguiente JSON
 - Enviar la petición de tipo POST a la ruta localhost:5000/api/user
 
