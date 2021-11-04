@@ -1,7 +1,6 @@
 package com.kodigo.personalagenda.controller;
 
 import com.kodigo.personalagenda.model.Appointment;
-import com.kodigo.personalagenda.model.Contact;
 import com.kodigo.personalagenda.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

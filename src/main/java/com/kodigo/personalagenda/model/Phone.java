@@ -1,7 +1,9 @@
 package com.kodigo.personalagenda.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "phone")
@@ -23,6 +25,6 @@ public class Phone {
 
     @Getter @Setter
     @OneToOne
-    @JoinColumn(name = "id_contact", nullable = false)
+    @JoinColumn(name = "id_contact")
     private Contact idContact;
 }

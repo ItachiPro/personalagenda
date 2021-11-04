@@ -3,6 +3,7 @@ package com.kodigo.personalagenda.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "contact_type")
@@ -17,6 +18,6 @@ public class ContactType {
     @Getter @Setter @Column(name = "name")
     private String name;
 
-    @OneToOne(mappedBy = "idContactType")
-    private Contact contact;
+    @OneToMany(mappedBy = "idContactType")
+    private List<Contact> contact;
 }
