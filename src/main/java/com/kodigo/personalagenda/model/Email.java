@@ -21,6 +21,6 @@ public class Email {
     @JsonIgnore
     @Getter @Setter
     @OneToOne
-    @JoinColumn(name = "idContact", nullable = false)
+    @JoinColumn(name = "id_contact", nullable = false)
     private Contact idContact;
 }

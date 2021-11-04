@@ -29,11 +29,11 @@ public class Appointment {
     @JsonIgnore
     @Getter @Setter
     @ManyToOne
-    @JoinColumn(name = "id_user", nullable = false)
+    @JoinColumn(name = "idUser", nullable = false)
     private Users idUser;
 
     @Getter @Setter
     @ManyToOne
-    @JoinColumn(name = "id_contact")
+    @JoinColumn(name = "idContact")
     private Contact idContact;
 }
