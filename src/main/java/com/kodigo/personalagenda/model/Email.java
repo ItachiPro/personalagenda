@@ -18,7 +18,6 @@ public class Email {
     @Column(name = "email_address")
     private String emailAddress;
 
-    @JsonIgnore
     @Getter @Setter
     @OneToOne
     @JoinColumn(name = "id_contact", nullable = false)

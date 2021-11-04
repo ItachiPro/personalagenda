@@ -8,7 +8,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "city")
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class City {

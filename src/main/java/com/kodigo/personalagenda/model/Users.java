@@ -1,6 +1,5 @@
 package com.kodigo.personalagenda.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,7 +7,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@ToString
 @AllArgsConstructor @NoArgsConstructor
 public class Users {
     @Id
@@ -25,6 +23,6 @@ public class Users {
     @OneToMany(mappedBy = "idAppointment")
     private List<Appointment> appointments;
 
-    @OneToMany(mappedBy = "idContact")
-    private List<Contact> contacts;
+    /*@OneToMany(mappedBy = "idContact")
+    private List<Contact> contacts;*/
 }

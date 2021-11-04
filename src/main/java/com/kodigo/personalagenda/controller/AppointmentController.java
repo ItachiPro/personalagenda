@@ -52,12 +52,12 @@ public class AppointmentController {
                         a.setTitle(appointment.getTitle());
                         a.setDescription(appointment.getDescription());
                         a.setIdUser(appointment.getIdUser());
-                        a.setIdContact(appointment.getIdContact());
+                        //a.setIdContact(appointment.getIdContact());
                         Appointment response = appointmentRepository.save(a);
                         return new ResponseEntity<>(response, HttpStatus.OK);
                     })
                     .orElseGet(() -> {
-                        appointment.setIdContact(appointment.getIdContact());
+                        appointment.setIdAppointment(appointment.getIdAppointment());
                         Appointment response = appointmentRepository.save(appointment);
                         return new ResponseEntity<>(response, HttpStatus.OK);
                     });
