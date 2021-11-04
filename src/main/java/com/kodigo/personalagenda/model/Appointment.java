@@ -1,6 +1,9 @@
 package com.kodigo.personalagenda.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+import org.springframework.security.core.userdetails.User;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -23,9 +26,14 @@ public class Appointment {
     @Getter @Setter @Column(name = "description")
     private String description;
 
-    @Getter @Setter @Column(name = "id_user")
-    private long idUser;
+    @JsonIgnore
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "id_user", nullable = false)
+    private Users idUser;
 
-    @Getter @Setter @Column(name = "id_contact")
-    private long idContact;
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "id_contact")
+    private Contact idContact;
 }

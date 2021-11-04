@@ -18,7 +18,7 @@ public class AppointmentController {
     @Autowired
     AppointmentRepository appointmentRepository;
 
-    @RequestMapping(value = "/appointment", method = RequestMethod.GET)
+    @RequestMapping(value = "/appointments", method = RequestMethod.GET)
     public List<Appointment> getAppointments(){
         return appointmentRepository.findAll();
     }
@@ -46,7 +46,7 @@ public class AppointmentController {
     @RequestMapping(value = "/appointment", method = RequestMethod.PUT)
     public ResponseEntity<Appointment> updateAppointment(@RequestBody Appointment appointment){
         try{
-            return appointmentRepository.findById(appointment.getIdContact())
+            return appointmentRepository.findById(appointment.getIdAppointment())
                     .map(a -> {
                         a.setAppointmentDate(appointment.getAppointmentDate());
                         a.setTitle(appointment.getTitle());

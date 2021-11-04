@@ -18,7 +18,7 @@ public class CityController {
     @Autowired
     CityRepository cityRepository;
 
-    @RequestMapping(value = "/city", method = RequestMethod.GET)
+    @RequestMapping(value = "/cities", method = RequestMethod.GET)
     public List<City> getCities(){
         return cityRepository.findAll();
     }

@@ -1,8 +1,10 @@
 package com.kodigo.personalagenda.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "city")
@@ -18,6 +20,11 @@ public class City {
     @Getter @Setter @Column(name = "name")
     private String name;
 
-    @Getter @Setter @Column(name = "id_department")
-    private long idDepartment;
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "id_department")
+    private Department idDepartment;
+
+    @OneToMany(mappedBy = "idAddress")
+    private List<Address> address;
 }

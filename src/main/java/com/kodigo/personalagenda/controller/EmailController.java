@@ -17,7 +17,7 @@ public class EmailController {
     @Autowired
     EmailRepository emailRepository;
 
-    @RequestMapping(value = "/email", method = RequestMethod.GET)
+    @RequestMapping(value = "/emails", method = RequestMethod.GET)
     public List<Email> getEmails(){
         return emailRepository.findAll();
     }
@@ -45,7 +45,7 @@ public class EmailController {
     @RequestMapping(value = "/email", method = RequestMethod.PUT)
     public ResponseEntity<Email> updateEmail(@RequestBody Email email){
         try{
-            return emailRepository.findById(email.getIdMail())
+            return emailRepository.findById(email.getIdEmail())
                     .map(m -> {
                         m.setEmailAddress(email.getEmailAddress());
                         m.setIdContact(email.getIdContact());
@@ -53,7 +53,7 @@ public class EmailController {
                         return new ResponseEntity<>(response, HttpStatus.OK);
                     })
                     .orElseGet(() -> {
-                        email.setIdMail(email.getIdMail());
+                        email.setIdEmail(email.getIdEmail());
                         Email response = emailRepository.save(email);
                         return new ResponseEntity<>(response, HttpStatus.OK);
                     });

@@ -15,4 +15,7 @@ public class PhoneType {
 
     @Getter @Setter @Column(name = "name")
     private String name;
+
+    @OneToOne(mappedBy = "idPhoneType")
+    private Phone phone;
 }

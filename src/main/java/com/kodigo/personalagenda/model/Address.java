@@ -18,12 +18,18 @@ public class Address {
     @Getter @Setter @Column(name = "address_direction")
     private String addressDirection;
 
-    @Getter @Setter @Column(name = "id_address_type")
-    private String idAddressType;
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "id_address_type")
+    private AddressType idAddressType;
 
-    @Getter @Setter @Column(name = "id_city")
-    private String idCity;
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "id_city")
+    private City idCity;
 
-    @Getter @Setter @Column(name = "id_contact")
-    private long idContact;
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "idContact")
+    private Contact idContact;
 }

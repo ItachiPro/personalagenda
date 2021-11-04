@@ -1,8 +1,10 @@
 package com.kodigo.personalagenda.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -19,4 +21,10 @@ public class Users {
 
     @Getter @Setter @Column(name = "pwd")
     private String password;
+
+    @OneToMany(mappedBy = "idAppointment")
+    private List<Appointment> appointments;
+
+    @OneToMany(mappedBy = "idContact")
+    private List<Contact> contacts;
 }

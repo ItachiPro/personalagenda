@@ -17,7 +17,7 @@ public class AddressTypeController {
     @Autowired
     AddressTypeRepository addressTypeRepository;
 
-    @RequestMapping(value = "/addressType", method = RequestMethod.GET)
+    @RequestMapping(value = "/addressTypes", method = RequestMethod.GET)
     public List<AddressType> getAddressTypes(){
         return addressTypeRepository.findAll();
     }

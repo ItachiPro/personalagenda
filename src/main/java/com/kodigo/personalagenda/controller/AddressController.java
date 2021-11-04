@@ -17,7 +17,7 @@ public class AddressController {
     @Autowired
     AddressRepository addressRepository;
 
-    @RequestMapping(value = "/address", method = RequestMethod.GET)
+    @RequestMapping(value = "/addresses", method = RequestMethod.GET)
     public List<Address> getAddresses(){
         return addressRepository.findAll();
     }
@@ -55,7 +55,7 @@ public class AddressController {
                         return new ResponseEntity<>(response, HttpStatus.OK);
                     })
                     .orElseGet(() -> {
-                        address.setIdContact(address.getIdAddress());
+                        address.setIdAddress(address.getIdAddress());
                         Address response = addressRepository.save(address);
                         return new ResponseEntity<>(response, HttpStatus.OK);
                     });

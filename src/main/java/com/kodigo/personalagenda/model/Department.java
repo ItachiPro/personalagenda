@@ -3,6 +3,7 @@ package com.kodigo.personalagenda.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "department")
@@ -17,4 +18,7 @@ public class Department {
 
     @Getter @Setter @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "idDepartment")
+    private List<City> city;
 }

@@ -16,4 +16,7 @@ public class ContactType {
 
     @Getter @Setter @Column(name = "name")
     private String name;
+
+    @OneToOne(mappedBy = "idContactType")
+    private Contact contact;
 }

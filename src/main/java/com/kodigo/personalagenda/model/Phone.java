@@ -16,9 +16,13 @@ public class Phone {
     @Getter @Setter @Column(name = "number_phone")
     private String numberPhone;
 
-    @Getter @Setter @Column(name = "id_phone_type")
-    private long idPhoneType;
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "id_phone_type")
+    private PhoneType idPhoneType;
 
-    @Getter @Setter @Column(name = "id_contact")
-    private long idContact;
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "id_contact", nullable = false)
+    private Contact idContact;
 }

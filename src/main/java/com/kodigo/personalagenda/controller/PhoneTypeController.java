@@ -17,7 +17,7 @@ public class PhoneTypeController {
     @Autowired
     PhoneTypeRepository phoneTypeRepository;
 
-    @RequestMapping(value = "/phoneType", method = RequestMethod.GET)
+    @RequestMapping(value = "/phoneTypes", method = RequestMethod.GET)
     public List<PhoneType> getPhoneTypes(){
         return phoneTypeRepository.findAll();
     }

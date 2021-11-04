@@ -17,7 +17,7 @@ public class ContactController {
     @Autowired
     ContactRepository contactRepository;
 
-    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    @RequestMapping(value = "/contacts", method = RequestMethod.GET)
     public List<Contact> getContacts(){
         return contactRepository.findAll();
     }
@@ -49,7 +49,6 @@ public class ContactController {
                     .map(c -> {
                         c.setFirstname(contact.getFirstname());
                         c.setLastname(contact.getLastname());
-                        c.setAddress(contact.getAddress());
                         c.setBirthday(contact.getBirthday());
                         c.setIdContactType(contact.getIdContactType());
                         Contact response = contactRepository.save(c);

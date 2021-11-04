@@ -3,6 +3,7 @@ package com.kodigo.personalagenda.model;
 import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "contact")
@@ -20,15 +21,28 @@ public class Contact {
     @Getter @Setter @Column(name = "lastname")
     private String lastname;
 
-    @Getter @Setter @Column(name = "address")
-    private String address;
-
     @Getter @Setter @Column(name = "birthday")
     private Date birthday;
 
-    @Getter @Setter @Column(name = "id_user")
-    private long idUser;
+    @Getter @Setter
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private Users idUser;
 
-    @Getter @Setter @Column(name = "id_contact_type")
-    private long idContactType;
+    @Getter @Setter
+    @OneToOne
+    @JoinColumn(name = "id_contact_type")
+    private ContactType idContactType;
+
+    @OneToMany(mappedBy = "idEmail")
+    private List<Email> emails;
+
+    @OneToMany(mappedBy = "idPhone")
+    private List<Phone> phones;
+
+    @OneToMany(mappedBy = "idAddress")
+    private List<Address> addresses;
+
+    @OneToMany(mappedBy = "idAppointment")
+    private List<Appointment> appointment;
 }

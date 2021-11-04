@@ -18,7 +18,7 @@ public class DepartmentController {
     @Autowired
     DepartmentRepository departmentRepository;
 
-    @RequestMapping(value = "/department", method = RequestMethod.GET)
+    @RequestMapping(value = "/departments", method = RequestMethod.GET)
     public List<Department> getDepartments(){
         return departmentRepository.findAll();
     }

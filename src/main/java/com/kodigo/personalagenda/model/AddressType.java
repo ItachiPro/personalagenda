@@ -17,4 +17,7 @@ public class AddressType {
 
     @Getter @Setter @Column(name = "name")
     private String name;
+
+    @OneToOne(mappedBy = "idAddressType")
+    private Address address;
 }
