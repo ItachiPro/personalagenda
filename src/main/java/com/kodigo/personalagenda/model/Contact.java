@@ -2,6 +2,7 @@ package com.kodigo.personalagenda.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -29,21 +30,18 @@ public class Contact {
     @JoinColumn(name = "id_user")
     private Users idUser;
 
-    @JsonIgnore
     @Getter @Setter
     @OneToOne
-    @JoinColumn(name = "id_contact_type")
+    @JoinColumn(name = "idContactType")
     private ContactType idContactType;
 
-    @OneToMany(mappedBy = "idEmail")
+    @OneToMany(mappedBy = "idEmail", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Email> emails;
 
-    @OneToMany(mappedBy = "idPhone")
+    @OneToMany(mappedBy = "idPhone", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Phone> phones;
 
-    @OneToMany(mappedBy = "idAddress")
+    @OneToMany(mappedBy = "idAddress", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses;
 
-    @OneToMany(mappedBy = "idAppointment")
-    private List<Appointment> appointment;
 }

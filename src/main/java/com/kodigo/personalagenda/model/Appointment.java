@@ -28,8 +28,4 @@ public class Appointment {
     @JoinColumn(name = "id_user", nullable = false)
     private Users idUser;
 
-    /*@Getter @Setter
-    @ManyToOne
-    @JoinColumn(name = "id_contact")
-    private Contact idContact;*/
 }

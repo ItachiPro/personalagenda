@@ -7,7 +7,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "contact_type")
-@ToString
 @AllArgsConstructor @NoArgsConstructor
 public class ContactType {
     @Id

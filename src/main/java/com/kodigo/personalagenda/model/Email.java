@@ -1,12 +1,11 @@
 package com.kodigo.personalagenda.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "email")
-@ToString
 @AllArgsConstructor @NoArgsConstructor
 public class Email {
     @Id
@@ -19,7 +18,7 @@ public class Email {
     private String emailAddress;
 
     @Getter @Setter
-    @OneToOne
-    @JoinColumn(name = "id_contact", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_contact")
     private Contact idContact;
 }

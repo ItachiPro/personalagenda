@@ -29,7 +29,7 @@ public class Address {
     private City idCity;
 
     @Getter @Setter
-    @OneToOne
-    @JoinColumn(name = "idContact")
+    @ManyToOne
+    @JoinColumn(name = "id_contact")
     private Contact idContact;
 }
